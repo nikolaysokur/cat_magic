@@ -1,6 +1,6 @@
 "use strict";
 
-var WIZARD_FIRSTNAMES = [
+var wizardFirstNames = [
   "Иван",
   "Хуан Себастьян",
   "Мария",
@@ -11,7 +11,7 @@ var WIZARD_FIRSTNAMES = [
   "Вашингтон",
 ];
 
-var WIZARD_SECONDNAMES = [
+var wizardSecondNames = [
   "да Марья",
   "Верон",
   "Мирабелла",
@@ -22,7 +22,7 @@ var WIZARD_SECONDNAMES = [
   "Ирвинг",
 ];
 
-var COAT_COLOR = [
+var coatColor = [
   "rgb(101, 137, 164)",
   "rgb(241, 43, 107)",
   "rgb(146, 100, 161)",
@@ -31,14 +31,14 @@ var COAT_COLOR = [
   "rgb(0, 0, 0)",
 ];
 
-var EYES_COLOR = ["black", "red", "blue", "yellow", "green"];
+var eyesColor = ["black", "red", "blue", "yellow", "green"];
 
 var userDialog = document.querySelector(".setup");
 userDialog.classList.remove("hidden");
 
 document.querySelector(".setup-similar").classList.remove("hidden");
 
-var similarListElement = document.querySelector("setup-similar-list");
+var similarListElement = document.querySelector(".setup-similar-list");
 
 var similarWizardTemplate = document
   .querySelector("#similar-wizard-template")
@@ -46,18 +46,18 @@ var similarWizardTemplate = document
 
 function setRandomName() {
   return (
-    WIZARD_FIRSTNAMES[Math.floor(Math.random() * WIZARD_FIRSTNAMES.length)] +
+    wizardFirstNames[Math.floor(Math.random() * wizardFirstNames.length)] +
     " " +
-    WIZARD_SECONDNAMES[Math.floor(Math.random() * WIZARD_SECONDNAMES.length)]
+    wizardSecondNames[Math.floor(Math.random() * wizardSecondNames.length)]
   );
 }
 
 function setRandomCoatColor() {
-  return COAT_COLOR[Math.floor(Math.random() * COAT_COLOR.length)];
+  return coatColor[Math.floor(Math.random() * coatColor.length)];
 }
 
 function setRandomeyesColor() {
-  return EYES_COLOR[Math.floor(Math.random() * EYES_COLOR.length)];
+  return eyesColor[Math.floor(Math.random() * eyesColor.length)];
 }
 
 var wizards = [];
@@ -83,6 +83,6 @@ for (var j = 0; j < wizards.length; j++) {
   fragment.appendChild(renderWizard(wizards[j]));
 }
 
-similarListElement.appendChild(wizardElement);
+similarListElement.appendChild(fragment);
 
 userDialog.querySelector(".setup-similar").classList.remove("hidden");
